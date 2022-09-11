@@ -1,34 +1,19 @@
 import { Address } from './address';
 import { Bank } from './bank';
-import { Company } from './company';
-import { Hair } from './hair';
+
+//transfom the json to interface by using transform.tools
 
 export interface User {
   id: number;
   firstName: string;
   lastName: string;
-  maidenName: string;
-  age: number;
   gender: string;
   email: string;
   phone: string;
   username: string;
-  password?: string;
   birthDate: string;
   image: string;
-  bloodGroup?: string;
-  height?: number;
-  weight?: number;
-  eyeColor?: string;
-  hair?: Hair;
   domain: string;
-  ip?: string;
-  address: Address;
-  macAddress?: string;
-  university?: string;
+  address: string;
   bank: Bank;
-  company?: Company;
-  ein?: string;
-  ssn?: string;
-  userAgent?: string;
 }

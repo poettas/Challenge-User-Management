@@ -1,1 +1,37 @@
-<p>users works!</p>
+<div *ngIf="users">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Picture</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date of Birth</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let number = index">
+        <td>#{{ number + 1 }}</td>
+        <td>
+          <img
+            [src]="user.image"
+            alt="user.username"
+            class="rounded-full h-[50px] w-[50px]"
+          />
+        </td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.birthDate }}</td>
+        <td>
+          <Button [routerLink]="['/userdetail', user.id]" type="button"
+            >Details</Button
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

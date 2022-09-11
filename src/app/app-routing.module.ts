@@ -5,7 +5,7 @@ import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   { path: 'users', component: UsersComponent },
-  { path: 'userdetail/:id', component: UserdetailComponent },
+  { path: `userdetail/:id`, component: UserdetailComponent },
   // to catch and redirect the 404
   { path: '**', redirectTo: 'users' },
 ];
