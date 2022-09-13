@@ -1,10 +1,5 @@
-import { Address } from './address';
-import { Bank } from './bank';
-
-//transfom the json to interface by using transform.tools
-
 export interface User {
-  id: number;
+  id: any;
   firstName: string;
   lastName: string;
   gender: string;
@@ -15,5 +10,4 @@ export interface User {
   image: string;
   domain: string;
   address: string;
-  bank: Bank;
 }

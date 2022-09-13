@@ -4,11 +4,11 @@
     <div class="flex flex-col items-center text-center">
       <img
         [src]="response.users[0].image"
-        alt="{{ response.users[0].username }}"
+        [alt]="response.users[0].username"
         class="w-40 h-40 rounded"
       />
       <div>
-        <h2 class="p-4">
+        <h2 class="p-4 text-3xl">
           {{ response.users[0].firstName }} {{ response.users[0].lastName }}
         </h2>
         <p>Username: {{ response.users[0].username }}</p>
@@ -20,74 +20,107 @@
         <div class="text-center">
           <h5>First Name</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].firstName" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].firstName"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>Last Name</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].lastName" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].lastName"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>address</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].address" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].address"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>email</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].email" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].email"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>phone</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].phone" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].phone"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>birthdate</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].birthDate" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].birthDate"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>gender</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].gender" />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>bank</h5>
-        </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].bank" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].gender"
+          />
         </div>
       </div>
       <div class="grid grid-cols-2">
         <div class="text-center">
           <h5>domain</h5>
         </div>
-        <div class="border border-black text-center w-3/4">
-          <input type="text" [value]="response.users[0].domain" />
+        <div class="">
+          <input
+            [disabled]="mode === 'locked'"
+            type="text"
+            [value]="response.users[0].domain"
+          />
         </div>
       </div>
     </div>
+  </div>
+  <div class="text-center mt-10">
+    <button
+      (click)="changeButtonMode(mode)"
+      type="button"
+      class="px-8 py-2 bg-yellow-600 rounded-full"
+    >
+      {{ buttonMode }}
+    </button>
   </div>
 </div>

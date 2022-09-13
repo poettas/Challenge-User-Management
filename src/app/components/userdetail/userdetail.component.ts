@@ -10,6 +10,9 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserdetailComponent implements OnInit {
   response: Response;
+  mode: 'edit' | 'locked' = 'locked';
+  buttonMode: 'Save Changes' | 'Edit' = 'Edit';
+
   //use the activated route to get the actual id of the user
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,14 +22,23 @@ export class UserdetailComponent implements OnInit {
   ngOnInit(): void {
     //reacts based on the given parameters
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      console.log(+params.get('id')!);
-
       this.userServie
         .getOneUser(+params.get('id')!)
         .subscribe((response: any) => {
-          console.log(response.users[0].image);
+          console.log(response);
           this.response = response;
         });
     });
+  }
+
+  changeButtonMode(mode?: 'edit' | 'locked'): void {
+    this.mode = this.mode === 'locked' ? 'edit' : 'locked';
+    this.buttonMode = this.buttonMode === 'Edit' ? 'Save Changes' : 'Edit';
+    // save the edited values, because a real edit isn't possible with the api
+    if (mode === 'edit') {
+      console.log('Updating the User Values on the API');
+    }
+
+    console.log(mode);
   }
 }

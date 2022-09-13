@@ -21,7 +21,8 @@ export class UserService {
   }
 
   // fetch single user details
-  getOneUser(id: number): Observable<any> {
+  // changed id to any, because resolver didn't want to convert the id to type number
+  getOneUser(id: any): Observable<any> {
     return this.http
       .get<any>(`${this.urlApi}/?id=${id}`)
       .pipe(map((response) => this.generateResponse(response)));
@@ -48,7 +49,6 @@ export class UserService {
               lat: user.address.coordinates.lat,
               lng: user.address.coordinates.lng,
             },
-            bank: user.bank,
           }
       ),
     };
