@@ -25,19 +25,9 @@ export class UserdetailComponent implements OnInit {
       this.activatedRoute.snapshot.data['resolvedResponse'].users[0]
     );
     console.log(this.user);
-
-    //reacts based on the given parameters
-    //   this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-    //     this.userServie
-    //       .getOneUser(+params.get('id')!)
-    //       .subscribe((response: any) => {
-    //         console.log(response);
-    //         this.response = response;
-    //       });
-    //   });
-    // }
   }
 
+  //using modes for the edit button
   changeButtonMode(mode?: 'edit' | 'locked'): void {
     this.mode = this.mode === 'locked' ? 'edit' : 'locked';
     this.buttonMode = this.buttonMode === 'Edit' ? 'Save Changes' : 'Edit';
@@ -45,7 +35,13 @@ export class UserdetailComponent implements OnInit {
     if (mode === 'edit') {
       console.log('Updating the User Values on the API');
     }
+  }
 
-    console.log(mode);
+  editUser(user: User, id: any) {
+    this.userServie.updateUser(this.user, this.user.id).subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(error),
+      () => console.log('User has been updated')
+    );
   }
 }

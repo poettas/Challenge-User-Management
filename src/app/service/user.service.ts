@@ -24,7 +24,7 @@ export class UserService {
   // changed id to any, because resolver didn't want to convert the id to type number
   getOneUser(id: any): Observable<any> {
     return this.http
-      .get<any>(`${this.urlApi}/?id=${id}`)
+      .get<any>(`${this.urlApi}/?${id}`)
       .pipe(map((response) => this.generateResponse(response)));
   }
 
@@ -66,7 +66,7 @@ export class UserService {
   }
 
   // delete a user from the api
-  deleteUser(id: any): Observable<void> {
-    return this.http.delete<void>(`${this.urlApi}/?id=${id}`);
+  deleteUser(id: any): Observable<any> {
+    return this.http.delete<any>(`${this.urlApi}/${id}`);
   }
 }

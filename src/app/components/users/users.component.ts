@@ -20,9 +20,12 @@ export class UsersComponent implements OnInit {
       console.log(result);
       (error: any) => console.log(error);
       this.users = result.users;
+      console.log('users in get: ', this.users);
     });
+  }
 
-    this.userservice.deleteUser().subscribe((result: any) => {
+  deleteUser(id: any): void {
+    this.userservice.deleteUser(this.users[0].id).subscribe((result: any) => {
       console.log(result);
       (error: any) => console.log(error);
       () => console.log('Done deleting user');
