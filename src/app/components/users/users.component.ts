@@ -18,7 +18,14 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.userservice.getAllUsers().subscribe((result: any) => {
       console.log(result);
+      (error: any) => console.log(error);
       this.users = result.users;
+    });
+
+    this.userservice.deleteUser().subscribe((result: any) => {
+      console.log(result);
+      (error: any) => console.log(error);
+      () => console.log('Done deleting user');
     });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Response } from 'src/app/interface/response';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/interface/user';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./userdetail.component.css'],
 })
 export class UserdetailComponent implements OnInit {
-  response: Response;
+  user: User;
   mode: 'edit' | 'locked' = 'locked';
   buttonMode: 'Save Changes' | 'Edit' = 'Edit';
 
@@ -20,15 +20,22 @@ export class UserdetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //use the resolver
+    this.user = <User>(
+      this.activatedRoute.snapshot.data['resolvedResponse'].users[0]
+    );
+    console.log(this.user);
+
     //reacts based on the given parameters
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this.userServie
-        .getOneUser(+params.get('id')!)
-        .subscribe((response: any) => {
-          console.log(response);
-          this.response = response;
-        });
-    });
+    //   this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+    //     this.userServie
+    //       .getOneUser(+params.get('id')!)
+    //       .subscribe((response: any) => {
+    //         console.log(response);
+    //         this.response = response;
+    //       });
+    //   });
+    // }
   }
 
   changeButtonMode(mode?: 'edit' | 'locked'): void {

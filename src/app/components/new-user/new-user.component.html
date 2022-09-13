@@ -1,0 +1,100 @@
+<!-- 
+    added as much as possible to validate the forms with basic html
+    had some problems dealing with the [(ngModule)] and the given time was not enough to get a 
+    deeper look into the reactive forms. This is a topic I want to reasearch a bit deeper.  
+ -->
+
+<div class="m-4">
+  <a routerLink="/users" class="my-4">&#8592; Back to list</a>
+  <h1 class="my-8 text-2xl">Create new User</h1>
+  <div>
+    <form>
+      <div>
+        <label for="firstname">Firstname: </label>
+        <input
+          type="text"
+          name="firstname"
+          id="firstname"
+          placeholder="your firstname"
+          required
+        />
+      </div>
+      <div>
+        <label for="lastname">Lastname: </label>
+        <input
+          type="text"
+          type="text"
+          name="lastname"
+          id="lastname"
+          placeholder="your lastname"
+          required
+        />
+      </div>
+      <div>
+        <label for="username">Username: </label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="your username"
+          required
+        />
+      </div>
+      <div>
+        <label for="dob">Birthdate: </label>
+        <input type="date" name="dob" id="dob" placeholder="" required />
+      </div>
+      <div>
+        <label for="email">Email: </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="type in your email"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="your password"
+          required
+          minlength="8"
+        />
+      </div>
+      <div>
+        <label for="gender">Gender: </label>
+        <div>
+          <label for="male">Male: </label>
+          <input type="radio" name="answer" id="male" value="male" />
+        </div>
+        <div>
+          <label for="female">Female: </label>
+          <input type="radio" name="answer" id="female" value="female" />
+        </div>
+        <div>
+          <label for="divers">Divers: </label>
+          <input type="radio" name="answer" id="divers" value="divers" />
+        </div>
+      </div>
+      <div>
+        <label for="image">Image: </label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          placeholder="choose an image"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+      <div>
+        <button type="submit" class="mt-6 px-8 py-2 bg-yellow-600 rounded-full">
+          Create User
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

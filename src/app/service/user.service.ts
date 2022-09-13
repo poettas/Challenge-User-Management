@@ -54,7 +54,19 @@ export class UserService {
     };
   }
 
+  // create a new user
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.urlApi}/newUser`, user);
+  }
+
   // edit single user details
+  // choosing put, because the hole form data is going to be sent to the api
+  updateUser(id: any, user: any): Observable<any> {
+    return this.http.put<any>(`${this.urlApi}/?id=${id}`, user);
+  }
 
   // delete a user from the api
+  deleteUser(id: any): Observable<void> {
+    return this.http.delete<void>(`${this.urlApi}/?id=${id}`);
+  }
 }
