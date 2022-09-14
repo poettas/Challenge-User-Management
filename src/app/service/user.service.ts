@@ -66,7 +66,7 @@ export class UserService {
   }
 
   // delete a user from the api
-  deleteUser(id: any): Observable<any> {
-    return this.http.delete<any>(`${this.urlApi}/${id}`);
-  }
+  // deleteUser(id: any): Observable<any> {
+  //   return this.http.delete<any>(`${this.urlApi}/${id}`);
+  // }
 }

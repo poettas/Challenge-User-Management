@@ -34,14 +34,27 @@ export class UserdetailComponent implements OnInit {
     // save the edited values, because a real edit isn't possible with the api
     if (mode === 'edit') {
       console.log('Updating the User Values on the API');
+
+      fetch('https://dummyjson.com/users/1', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          lastName: 'Owais',
+        }),
+      })
+        .then((res) => res.json())
+        .then(console.log);
     }
   }
 
-  editUser(user: User, id: any) {
-    this.userServie.updateUser(this.user, this.user.id).subscribe(
-      (response) => console.log(response),
-      (error: any) => console.log(error),
-      () => console.log('User has been updated')
-    );
-  }
+  //doesn't work right now, I have to take a deeper look into CRUD operations in Angular
+  // editUser(user: User, id: any) {
+  //   if (this.mode === 'edit') {
+  //     this.userServie.updateUser(this.user, this.user.id).subscribe(
+  //       (response) => console.log(response),
+  //       (error: any) => console.log(error),
+  //       () => console.log('User has been updated')
+  //     );
+  //   }
+  // }
 }

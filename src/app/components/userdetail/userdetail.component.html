@@ -9,109 +9,111 @@
         <p>#{{ user.id }}</p>
       </div>
     </div>
-    <div class="mt-10">
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>First Name</h5>
+    <form>
+      <div class="mt-10">
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>First Name</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.firstName"
+            />
+          </div>
         </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.firstName"
-          />
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>Last Name</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.lastName"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>address</h5>
+          </div>
+          <div class="w-[100px]">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.address"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>email</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.email"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>phone</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.phone"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>birthdate</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.birthDate"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>gender</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.gender"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2">
+          <div class="text-center">
+            <h5>domain</h5>
+          </div>
+          <div class="">
+            <input
+              [disabled]="mode === 'locked'"
+              type="text"
+              [value]="user.domain"
+            />
+          </div>
         </div>
       </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>Last Name</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.lastName"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>address</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.address"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>email</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.email"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>phone</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.phone"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>birthdate</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.birthDate"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>gender</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.gender"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2">
-        <div class="text-center">
-          <h5>domain</h5>
-        </div>
-        <div class="">
-          <input
-            [disabled]="mode === 'locked'"
-            type="text"
-            [value]="user.domain"
-          />
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
   <div class="text-center mt-10">
     <button
       (click)="changeButtonMode(mode)"
-      type="button"
+      type="submit"
       class="px-8 py-2 bg-yellow-600 rounded-full"
     >
       {{ buttonMode }}

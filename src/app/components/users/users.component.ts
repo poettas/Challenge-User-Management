@@ -24,11 +24,20 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  deleteUser(id: any): void {
-    this.userservice.deleteUser(this.users[0].id).subscribe((result: any) => {
-      console.log(result);
-      (error: any) => console.log(error);
-      () => console.log('Done deleting user');
-    });
+  deleteUser(id: any) {
+    fetch(`https://dummyjson.com/users/1`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then(console.log);
   }
+
+  // doesn't work like expected, I have to take a deeper look into Angular CRUD
+  // deleteUser(id: any): void {
+  //   this.userservice.deleteUser(this.users[0].id).subscribe((result: any) => {
+  //     console.log(result);
+  //     (error: any) => console.log(error);
+  //     () => console.log('Done deleting user');
+  //   });
+  // }
 }
