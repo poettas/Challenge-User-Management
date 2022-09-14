@@ -10,7 +10,7 @@
     </button>
   </div>
 
-  <div *ngIf="users">
+  <div *ngIf="users" class="grid items-center">
     <table>
       <thead>
         <tr>
@@ -18,9 +18,9 @@
           <th scope="col">Picture</th>
           <th scope="col">Lastname</th>
           <th scope="col">Firstname</th>
-          <th scope="col">Username</th>
-          <th scope="col">Email</th>
-          <th scope="col">Date of Birth</th>
+          <th scope="col" class="hidden sm:table-cell">Username</th>
+          <th scope="col" class="hidden md:table-cell">Email</th>
+          <th scope="col" class="hidden md:table-cell">Date of Birth</th>
         </tr>
       </thead>
       <tbody>
@@ -33,11 +33,11 @@
               class="rounded-full h-[50px] w-[50px]"
             />
           </td>
-          <td>{{ user.firstName }}</td>
-          <td>{{ user.lastName }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.birthDate }}</td>
+          <td class="text-center">{{ user.firstName }}</td>
+          <td class="text-center">{{ user.lastName }}</td>
+          <td class="hidden sm:table-cell text-center">{{ user.username }}</td>
+          <td class="hidden md:table-cell text-center">{{ user.email }}</td>
+          <td class="hidden md:table-cell text-center">{{ user.birthDate }}</td>
           <td>
             <Button
               [routerLink]="['/userdetail', user.id]"
